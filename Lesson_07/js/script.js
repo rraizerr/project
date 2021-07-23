@@ -27,3 +27,7 @@ let arr = ["plum.png", "orange.jpg", 6, "apple.bmp", [], {}];
 console.log(arr[1]);
 
 console.log(4 * 3 ** 2); // 4 * 9
+
+alert("Hello World");
+
+console.log(typeof (arr));
