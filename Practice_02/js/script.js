@@ -14,19 +14,19 @@ let perdonalMovieDB = {
 };
 
 
-//     for (let i = 0; i < 2; i++) {
-//          let a = prompt("Один из последних просмотренных фильмов?", ""),
-//             b = prompt("На сколько оцените его?", "");
-//         if (a != null && b != null && a != "" && b != "" && a.length < 50 && b.length < 50) {
-//             perdonalMovieDB.movies[a] = b;
-//             console.log("Done");
-//         } else {
-//             console.log("Error");
-//             i--;
-//         }
-//     }
+    for (let i = 0; i < 2; i++) {
+         let a = prompt("Один из последних просмотренных фильмов?", ""),
+            b = prompt("На сколько оцените его?", "");
+        if (a != null && b != null && a != "" && b != "" && a.length < 50 && b.length < 50) {
+            perdonalMovieDB.movies[a] = b;
+            console.log("Done");
+        } else {
+            console.log("Error");
+            i--;
+        }
+    }
 
-// console.log(perdonalMovieDB);
+console.log(perdonalMovieDB);
 
 
 if (perdonalMovieDB.count >= 1 && perdonalMovieDB.count < 10) {
