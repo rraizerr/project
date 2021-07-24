@@ -57,5 +57,3 @@ function compareNum(a, b) {
 
 // Метод join превращаем массив в строку
 // console.log(products.join("; "));
-
-//Псевдомассив 
