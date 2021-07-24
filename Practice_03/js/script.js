@@ -2,7 +2,15 @@
 
 let numberOfFilms;
 
-// console.log(numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели", ""));
+function start() {
+    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели", "");
+
+    while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели", "");
+    }
+}
+
+start();
 
 let perdonalMovieDB = {
     count: numberOfFilms,
@@ -13,39 +21,43 @@ let perdonalMovieDB = {
 
 };
 
+function rememberMyFilms() {
+      for (let i = 0; i < 2; i++) {
+         let a = prompt("Один из последних просмотренных фильмов?", ""),
+            b = prompt("На сколько оцените его?", "");
+        if (a != null && b != null && a != "" && b != "" && a.length < 50 && b.length < 50) {
+            perdonalMovieDB.movies[a] = b;
+            console.log("Done");
+        } else {
+            console.log("Error");
+            i--;
+        }
+    }
+}
 
-//     for (let i = 0; i < 2; i++) {
-//          let a = prompt("Один из последних просмотренных фильмов?", ""),
-//             b = prompt("На сколько оцените его?", "");
-//         if (a != null && b != null && a != "" && b != "" && a.length < 50 && b.length < 50) {
-//             perdonalMovieDB.movies[a] = b;
-//             console.log("Done");
-//         } else {
-//             console.log("Error");
-//             i--;
-//         }
-//     }
+// rememberMyFilms();
 
-// console.log(perdonalMovieDB);
-
-
-// if (perdonalMovieDB.count >= 1 && perdonalMovieDB.count < 10) {
-//     console.log("Просмотрено мало фильмов");
-// } else {
-//     if (perdonalMovieDB.count >= 10 && perdonalMovieDB.count < 30) {
-//         console.log("Вы классический зритель");
-//     } else {
-//         if (perdonalMovieDB.count >= 30) {
-//             console.log("Вы киноман");    
-//         } else {
-//             console.log("Произошла ошибка");
-//         }
+function detectPersonalLevel() {
+    if (perdonalMovieDB.count >= 1 && perdonalMovieDB.count < 10) {
+    console.log("Просмотрено мало фильмов");
+} else {
+    if (perdonalMovieDB.count >= 10 && perdonalMovieDB.count < 30) {
+        console.log("Вы классический зритель");
+    } else {
+        if (perdonalMovieDB.count >= 30) {
+            console.log("Вы киноман");    
+        } else {
+            console.log("Произошла ошибка");
+        }
         
-//     }
-//     }
+    }
+    }
+}
 
-function showMyDB(privat) {
-    if (privat != true) {
+// detectPersonalLevel();
+
+function showMyDB(hidden) {
+    if (!hidden) {
         console.log(perdonalMovieDB);        
     } else {
         console.log("Error");
@@ -55,11 +67,32 @@ function showMyDB(privat) {
 
 showMyDB(perdonalMovieDB.privat);
 
-function writeYourGenres(x) {
-    for (let i = 0; i < 3; i++) {
-        x[i] = prompt("Ваш любимый жанр?", "");
-        
+// Мой вариант ответа
+// function writeYourGenres(x) {
+//     for (let i = 1; i <= 3; i++) {
+//         x[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+                
+//     }
+// }
+
+// writeYourGenres(perdonalMovieDB.genres);
+
+// Ответ куратора
+// function writeYourGenres() {
+//     for (let i = 1; i <= 3; i++) {
+//         const genre = prompt(`Ваш любимый жанр под номером ${i}`);
+//         perdonalMovieDB.genres[i - 1] = genre;
+                
+//     }
+// }
+
+function writeYourGenres() {
+    for (let i = 1; i <= 3; i++) {
+        perdonalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+                
     }
 }
 
-writeYourGenres(perdonalMovieDB.genres);
+writeYourGenres();
+
+// console.log(perdonalMovieDB);
