@@ -44,35 +44,22 @@ let perdonalMovieDB = {
 //     }
 //     }
 
+function showMyDB(privat) {
+    if (privat != true) {
+        console.log(perdonalMovieDB);        
+    } else {
+        console.log("Error");
+    }
 
-// ------ Методы и свойства строк и чисел
+}
 
-const fruit = "Some fruit";
+showMyDB(perdonalMovieDB.privat);
 
-console.log(fruit.length);
-console.log(fruit.indexOf("fruit"));
-console.log(fruit[5].toUpperCase());
-console.log(fruit);
-console.log(fruit.indexOf("q"));
+function writeYourGenres(x) {
+    for (let i = 0; i < 3; i++) {
+        x[i] = prompt("Ваш любимый жанр?", "");
+        
+    }
+}
 
-const logg = "Hello world";
-
-console.log(logg.indexOf("world"));
-console.log(logg.indexOf("d"));
-console.log("");
-console.log(logg.slice(6, 11)); // d на 10 месте, чтобы не отрезало букву ставим 11
-console.log(logg.slice(6));
-console.log(logg.slice(-5, -1)); // Начинает работу с права налево
-console.log("");
-console.log(logg.substring(6, 11)); // не поддежривает отрицательные
-console.log("");
-console.log(logg.substr(6, 5)); // начиная с 6 позиции вырезать 5 символов
-console.log("");
-
-const num = 12.2;
-console.log(Math.round(num));
-console.log("");
-
-const test = "12.2px";
-console.log(parseInt(test)); // переводит число в другую систему исчисления
-console.log(parseFloat(test)); // возвращает число в десятичном варианте
+writeYourGenres(perdonalMovieDB.genres);
