@@ -23,11 +23,12 @@
 // let ourPlanetName = "Earth";
 // let currentUser;
 
-// ---------------------------------------------------------------------
 
+// ---------------------------------------------------------------------
 // let askName = prompt("Ваше имя?", "");
 
 // alert(askName);
+
 
 // ---------------------------------------------------------------------
 // 1)
@@ -68,8 +69,9 @@
 // undefined === null      false
 // null == "\n0\n"         false
 // null === +"\n0\n"       {false}
-// ---------------------------------------------------------------------
 
+
+// ---------------------------------------------------------------------
 // 1)
 // let ask = prompt("Какое «официальное» название JavaScript?", "");
 
@@ -146,6 +148,7 @@
 
 // console.log(message);
 
+
 // --------------------------------------------------------------------
 // 1)
 // Напишите условие if для проверки, что значение переменной age НЕ
@@ -182,8 +185,9 @@
 // } else {
 //     console.log("Отмена");
 // }
-// --------------------------------------------------------------------
 
+
+// --------------------------------------------------------------------
 // 1)
 // При помощи цикла for выведите чётные числа от 2 до 10.
 
@@ -216,7 +220,7 @@
 //     console.log(`Number ${numb++}`);
 // }
 
-// 2)
+// 3)
 // Напишите цикл, который предлагает prompt ввести число, большее 100.
 // Если посетитель ввёл другое число – попросить ввести ещё раз, и так
 // далее.
@@ -233,16 +237,533 @@
 //     ask = +prompt("Введите число больше 100", "0");
 // } while (ask < 100 && ask);
 
+// 4)
+// let n = 10;
+
+// nextPrime:
+// for (let i = 2; i <= n; i++) { // Для всех i...
+
+//   for (let j = 2; j < i; j++) { // проверить, делится ли число..
+//     if (i % j == 0) continue nextPrime; // не подходит, берём следующее
+//   }
+
+// console.log(i); // простое число
+// }
+
+// 5)
+// Напишите if..else, соответствующий следующему switch:
+
+// switch (browser) {
+//   case 'Edge':
+//     alert( "You've got the Edge!" );
+//     break;
+
+//   case 'Chrome':
+//   case 'Firefox':
+//   case 'Safari':
+//   case 'Opera':
+//     alert( 'Okay we support these browsers too' );
+//     break;
+
+//   default:
+//     alert( 'We hope that this page looks ok!' );
+// }
+
+// let browser = "Edge";
+
+// if (browser == "Edge") {
+//   console.log("You've got the Edge!");
+// } else if (browser == "Chrome" || browser == "Firefox" ||
+//   browser == "Safari" || browser == "Opera") {
+//   console.log("Okay we support these browsers too");
+// } else {
+//   console.log("We hope that this page looks ok!");
+// }
+
+// 6)
+// Перепишите код с использованием одной конструкции switch:
+
+// const number = +prompt('Введите число между 0 и 3', '');
+
+// if (number === 0) {
+//   alert('Вы ввели число 0');
+// }
+
+// if (number === 1) {
+//   alert('Вы ввели число 1');
+// }
+
+// if (number === 2 || number === 3) {
+//   alert('Вы ввели число 2, а может и 3');
+// }
+
+// const numb = 4;
+
+// switch (numb) {
+//   case 0:
+//     console.log("Вы ввели число 0");
+//     break;
+//   case 1:
+//     console.log("Вы ввели число 1");
+//     break;
+//   case 2:
+//   case 3:
+//     console.log("Вы ввели число 2, а может и 3");
+//     break;
+  
+//   default:
+//   console.log("Вы за пределами вселенной!");
+// }
+
+
+// --------------------------------------------------------------------
+// Следующая функция возвращает true, если параметр age больше 18.
+
+// В ином случае она задаёт вопрос confirm и возвращает его результат.
+
+// function checkAge(age) {
+//   if (age > 18) {
+//     return true;
+//   } else {
+//     return confirm('Родители разрешили?');
+//   }
+// }
+// Перепишите функцию, чтобы она делала то же самое, но без if, в одну строку.
+
+// Сделайте два варианта функции checkAge:
+
+// Используя оператор ?
+// Используя оператор ||
+
+// 1.1)
+// function checkAge(age) {
+//  return (age > 18) ? console.log(true) : console.log("Родители разрешили?");
+// }
+// checkAge(19);
+
+// 1.2)
+// function checkAgeTwo(age) {
+//  return (age > 18) || console.log("Родители разрешили?");
+// }
+// checkAgeTwo(17);
+
+// 2)
+// Напишите функцию min(a,b), которая возвращает меньшее из чисел a и b.
+
+// Пример вызовов:
+
+// min(2, 5) == 2
+// min(3, -1) == -1
+// min(1, 1) == 1
+
+// 2.1)
+// function min(a, b) {
+//   if (a < b) {
+//     return console.log(a);
+//   } else {
+//     return console.log(b);
+//   }
+// }
+
+// 2.2) 
+// function min(a, b) {
+//   return (a < b) ? console.log(a) : console.log(b);
+// }
+
+// min(3, -1);
+
 // 3)
+// Напишите функцию pow(x, n), которая возвращает x в степени n.Иначе говоря,
+//   умножает x на себя n раз и возвращает результат.
 
-let n = 10;
+// pow(3, 2) = 3 * 3 = 9
+// pow(3, 3) = 3 * 3 * 3 = 27
+// pow(1, 100) = 1 * 1 * ...* 1 = 1
 
-nextPrime:
-for (let i = 2; i <= n; i++) { // Для всех i...
+// 3.1)
+// function pow(a, b) {
+//   return console.log(Math.pow(a, b));
+// }
 
-  for (let j = 2; j < i; j++) { // проверить, делится ли число..
-    if (i % j == 0) continue nextPrime; // не подходит, берём следующее
-  }
+// pow(3, 3);
 
-console.log(i); // простое число
-}
+// 3.2)
+// function pow(a, b) {
+//   let result = a;
+//   for (let i = 1; i < b; i++) {
+//     result *= a;
+//   }
+//   return console.log(result);
+// }
+
+// pow(3, 3);
+
+
+// --------------------------------------------------------------------
+// Замените код Function Expression стрелочной функцией:
+
+// function ask(question, yes, no) {
+//   if (confirm(question)) yes()
+//   else no();
+// }
+
+// ask(
+//   "Вы согласны?",
+//   function() { alert("Вы согласились."); },
+//   function() { alert("Вы отменили выполнение."); }
+// );
+
+// 1.1)
+// let ask = (question, yes, no) => {
+//   return confirm(question) ? yes(alert("You in")) : no(alert("You skip"));
+// };
+
+// ask("Do you in?");
+
+// 1.2)
+// function ask(question, yes, no) {
+//   if (confirm(question)) {
+//     yes();
+//   } else {
+//     no();
+//   }
+// }
+
+// ask(
+//   "Вы согласны?",
+//   () => alert("Вы согласились."),
+//   () => alert("Вы отменили выполнение.")
+// );
+
+// 1.3)
+// let question = confirm("Вы согласны?", "");
+// let ask = (question) ? () => alert("Да, Вы в деле") : () => alert("Вы отказались");
+
+// ask();
+
+
+// --------------------------------------------------------------------
+// Hello Objects
+// --------------------------------------------------------------------
+
+// 1)
+// Напишите код, выполнив задание из каждого пункта отдельной строкой:
+
+// Создайте пустой объект user.
+// Добавьте свойство name со значением John.
+// Добавьте свойство surname со значением Smith.
+// Измените значение свойства name на Pete.
+// Удалите свойство name из объекта.
+
+// const user = {};
+
+// user.name = "John";
+// user.surmame = "Smith";
+// console.log(user);
+
+// user.name = "Pete";
+// console.log(user);
+
+// delete user.name;
+// console.log(user);
+
+// 2)
+// Напишите функцию isEmpty(obj), которая возвращает true, если у
+// объекта нет свойств, иначе false.
+
+// Должно работать так:
+
+// let schedule = {};
+
+// alert( isEmpty(schedule) ); // true
+
+// schedule["8:30"] = "get up";
+
+// alert( isEmpty(schedule) ); // false
+
+// let schedule = {};
+
+// function isEmpty(object) {
+//   for (const key in object) {
+//      return false; 
+//   }
+//   return true;
+// }
+
+// console.log(isEmpty(schedule)); // true
+
+// schedule["8:30"] = "get up";
+
+// console.log(isEmpty(schedule)); // false
+
+// 3)
+// const user = {
+//   name: "John"
+// };
+
+// console.log(user);
+// // это будет работать?
+// user.name = "Pete";
+// console.log(user);
+
+// 4)
+// У нас есть объект, в котором хранятся зарплаты нашей команды:
+
+// let salaries = {
+//   John: 100,
+//   Ann: 160,
+//   Pete: 130
+// }
+// Напишите код для суммирования всех зарплат и сохраните результат
+// в переменной sum.Должно получиться 390.
+// Если объект salaries пуст, то результат должен быть 0.
+
+// let salaries = {
+//   John: 100,
+//   Ann: 160,
+//   Pete: 130
+// },
+//   users = {};
+
+// function sumSal(object) {
+//   let sum = 0;
+//   for (const key in object) {
+//     sum += object[key];
+//   }
+//   return console.log(sum);
+// }
+
+// sumSal(salaries);
+// sumSal(users);
+
+// 5)
+// Создайте функцию multiplyNumeric(obj), которая умножает все
+// числовые свойства объекта obj на 2.
+// Например:
+
+// // до вызова функции
+// let menu = {
+//   width: 200,
+//   height: 300,
+//   title: "My menu"
+// };
+
+// multiplyNumeric(menu);
+
+// // после вызова функции
+// menu = {
+//   width: 400,
+//   height: 600,
+//   title: "My menu"
+// };
+// Обратите внимание, что multiplyNumeric не нужно ничего возвращать.
+// Следует напрямую изменять объект.
+// P.S. Используйте typeof для проверки, что значение свойства числовое.
+
+// let menu = {
+//   width: 200,
+//   height: 300,
+//   title: "My menu"
+// };
+
+// multiplyNumeric(menu);
+
+// let menu = {
+//   width: 200,
+//   height: 300,
+//   title: "My menu"
+// };
+
+// function multiplyNumeric(obj) {
+//   for (const key in obj) {
+//     if (typeof(obj[key]) == "number") {
+//      obj[key] *= 2;
+//     }
+//   }
+//   // return obj;
+// }
+
+// multiplyNumeric(menu);
+// console.log(menu);
+// // console.log(multiplyNumeric(menu));
+
+
+// --------------------------------------------------------------------
+// this
+// --------------------------------------------------------------------
+
+// 1)
+// Создайте объект calculator (калькулятор) с тремя методами:
+
+// read()(читать) запрашивает два значения и сохраняет их как
+// свойства объекта.
+// sum() (суммировать) возвращает сумму сохранённых значений.
+// mul() (умножить) перемножает сохранённые значения и возвращает результат.
+// let calculator = {
+//   // ... ваш код ...
+// };
+
+// calculator.read();
+// alert( calculator.sum() );
+// alert( calculator.mul() );
+
+// let calculator = {
+//   read: () => {
+//     this.a = +prompt("Введите первое значение", "0");
+//     this.b = +prompt("Введите второе значение", "0");
+//   },
+//   sum: () => {
+//     return this.a + this.b;
+//   },
+//   mul: () => {
+//     return this.a * this.b;
+//   }
+// };
+
+// calculator.read();
+// alert(calculator.sum());
+// alert(calculator.mul());
+
+
+// 2)
+// Это ladder(лестница) – объект, который позволяет подниматься вверх и
+// спускаться:
+
+// let ladder = {
+//   step: 0,
+//   up() {
+//     this.step++;
+//   },
+//   down() {
+//     this.step--;
+//   },
+//   showStep: function() { // показывает текущую ступеньку
+//     alert( this.step );
+//   }
+// };
+// Теперь, если нам нужно сделать несколько последовательных вызовов,
+// мы можем выполнить это так:
+
+// ladder.up();
+// ladder.up();
+// ladder.down();
+// ladder.showStep(); // 1
+// Измените код методов up, down и showStep таким образом, чтобы их
+// вызов можно было сделать по цепочке, например так:
+
+// ladder.up().up().down().showStep(); // 1
+// Такой подход широко используется в библиотеках JavaScript.
+
+// let ladder = {
+//   step: 0,
+//   up() {
+//     this.step++;
+//     return this;
+//   },
+//   down() {
+//     this.step--;
+//     return this;
+//   },
+//   showStep: function() { 
+//     console.log((this.step));
+//     return this;
+//   }
+// };
+
+// // ladder.up();
+// // ladder.up();
+// // ladder.down();
+// // ladder.showStep();
+
+// ladder.up().up().down().showStep();
+
+// --------------------------------------------------------------------
+// 1)
+// Создайте функцию - конструктор Calculator, который создаёт объекты с
+// тремя методами:
+
+// read() запрашивает два значения при помощи prompt и сохраняет их
+// значение в свойствах объекта.
+// sum() возвращает сумму введённых свойств.
+// mul() возвращает произведение введённых свойств.
+// Например:
+
+// let calculator = new Calculator();
+// calculator.read();
+
+// alert( "Sum=" + calculator.sum() );
+// alert( "Mul=" + calculator.mul() )
+
+// function Calculator() {
+//   this.read = () => {
+//     this.a = +prompt("Введите a", "0");
+//     this.b = +prompt("Введите b", "0");
+//   };
+//   this.sum = () => {
+//     return this.a + this.b;
+//   };
+//   this.mul = () => {
+//     return this.a * this.b;
+//   };
+//   this.pow = () => {
+//     return Math.pow(this.a, this.b);
+//   };
+  
+// }
+
+// let calculator = new Calculator();
+// calculator.read();
+
+// alert("Sum=" + calculator.sum());
+// alert("Mul=" + calculator.mul());
+// alert("Pow=" + calculator.pow());
+
+// 2)
+// Напишите функцию-конструктор Accumulator(startingValue).
+
+// Объект, который она создаёт, должен уметь следующее:
+
+// Хранить «текущее значение» в свойстве value.Начальное значение
+// устанавливается в аргументе конструктора startingValue.
+// Метод read() использует prompt для получения числа и прибавляет
+// его к свойству value.
+// Таким образом, свойство value является текущей суммой всего, что
+// ввёл пользователь при вызовах метода read(), с учётом начального
+// значения startingValue.
+
+// Ниже вы можете посмотреть работу кода:
+
+// let accumulator = new Accumulator(1); // начальное значение 1
+// accumulator.read(); // прибавит ввод prompt к текущему значению
+// accumulator.read(); // прибавит ввод prompt к текущему значению
+// alert(accumulator.value); // выведет сумму этих значений
+
+
+// function Accumulator(startingValue) {
+//   this.value = startingValue;
+//   this.read = () => {
+//     let ask = +prompt("Введите число", "0");
+//     this.value += ask;
+//     return this.value;
+//   };
+// }
+
+// let accumulator = new Accumulator(1); // начальное значение 1
+
+// accumulator.read(); // прибавит ввод prompt к текущему значению
+// accumulator.read(); // прибавит ввод prompt к текущему значению
+
+// alert(accumulator.value); // выведет сумму этих значений
+
+// --------------------------------------------------------------------
+
+// Создайте функцию readNumber, которая будет запрашивать ввод числового
+// значения до тех пор, пока посетитель его не введёт.
+
+// Функция должна возвращать числовое значение.
+
+// Также надо разрешить пользователю остановить процесс ввода, отправив
+// пустую строку или нажав «Отмена».В этом случае функция должна
+// вернуть null.
+
+
