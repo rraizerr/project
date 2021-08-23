@@ -878,3 +878,103 @@
 // }
 
 // console.log(ucFirst("вася"));
+
+// 2)
+// Напишите функцию checkSpam(str), возвращающую true, если str содержит
+// 'viagra' или 'XXX', а иначе false.
+// Функция должна быть нечувствительна к регистру:
+
+// checkSpam('buy ViAgRA now') == true
+// checkSpam('free xxxxx') == true
+// checkSpam("innocent rabbit") == false
+
+// 2.1)
+// function checkSpam(str) {
+//     let subStr = str.toLowerCase();
+//     console.log(str);
+//     if (subStr.indexOf("viagra") != -1 || subStr.indexOf("xxx") != -1) {
+//         return console.log(true);
+//     } else {
+//         return console.log(false);
+//     }
+// }
+
+// checkSpam("buy ViAgRA now"); //== true
+// checkSpam("free xxxxx"); //== true
+// checkSpam("innocent rabbit"); //== false
+
+// 2.2)
+// Для поиска без учёта регистра символов переведём всю строку в
+// нижний регистр, а потом проверим, есть ли в ней искомые подстроки:
+
+// function checkSpam(str) {
+//   let lowerStr = str.toLowerCase();
+
+//   return lowerStr.includes('viagra') || lowerStr.includes('xxx');
+// }
+
+// alert( checkSpam('buy ViAgRA now') );
+// alert( checkSpam('free xxxxx') );
+// alert( checkSpam("innocent rabbit") );
+
+// 3)
+// Создайте функцию truncate(str, maxlength), которая проверяет длину
+// строки str и, если она превосходит maxlength, заменяет конец str
+// на "…", так, чтобы её длина стала равна maxlength.
+
+// Результатом функции должна быть та же строка, если усечение не требуется,
+//     либо, если необходимо, усечённая строка.
+
+// Например:
+
+// truncate("Вот, что мне хотелось бы сказать на эту тему:", 20) =
+//     "Вот, что мне хотело…"
+
+// truncate("Всем привет!", 20) = "Всем привет!"
+
+// 3.1)
+// function truncate(str, value) {
+//     let newStr;
+//     if (str.length > value) {
+//         newStr = str.slice(0, value - 1) + "…";
+//         return console.log(newStr);
+//     }
+//     return console.log(str);
+// }
+
+// truncate("Вот, что мне хотелось бы сказать на эту тему:", 20);
+// truncate("Всем привет!", 20);
+
+// 3.2)
+// Строка, которую мы возвращаем, должна быть не длиннее maxlength, 
+// поэтому, если мы обрезаем строку, то мы должны убрать на один символ
+// больше, чем maxlength — чтобы хватило места на многоточие.
+
+// Имейте в виду, что в качестве многоточия здесь используется … — ровно
+// один специальный юникодный символ.Это не то же самое, что ... — три
+// точки.
+
+// function truncate(str, maxlength) {
+//     return (str.length > maxlength) ?
+//         str.slice(0, maxlength - 1) + '…' : str;   
+// }
+
+// 4)
+// Есть стоимость в виде строки "$120".То есть сначала идёт знак валюты,
+// а затем – число.
+// Создайте функцию extractCurrencyValue(str), которая будет из такой
+// строки выделять числовое значение и возвращать его.
+// Например:
+
+// alert( extractCurrencyValue('$120') === 120 ); // true
+
+// function extractCurrencyValue(str) {
+//   return console.log(+str.slice(1));
+// }
+
+// extractCurrencyValue("$120");
+
+
+// --------------------------------------------------------------------
+// Массивы
+// --------------------------------------------------------------------
