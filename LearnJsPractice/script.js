@@ -757,6 +757,7 @@
 
 // --------------------------------------------------------------------
 
+// 1)
 // Создайте функцию readNumber, которая будет запрашивать ввод числового
 // значения до тех пор, пока посетитель его не введёт.
 
@@ -766,4 +767,79 @@
 // пустую строку или нажав «Отмена».В этом случае функция должна
 // вернуть null.
 
+// function readNumber() {
+//     let param = +prompt("Введите число", "0");
+//     while (!isFinite(param)) {
+//         param = +prompt("Введите число", "0");
+//     }
+//     return console.log(param);
+// }
 
+// readNumber();
+
+// function readNumber() {
+//     let param;
+
+//     do {
+//         param = +prompt("Введите число", "0");
+//     } while (!isFinite(param)); {
+//         if (param == null || param == "") {
+//             return console.log(null);
+//         }
+//     }
+
+//     return console.log(param);
+// }
+
+// readNumber();
+
+// 2)
+// Встроенный метод Math.random() возвращает случайное число от 0
+// (включительно) до 1(но не включая 1)
+
+// Напишите функцию random(min, max), которая генерирует случайное
+// число с плавающей точкой от min до max(но не включая max).
+
+// Пример работы функции:
+// alert( random(1, 5) ); // 1.2345623452
+// alert( random(1, 5) ); // 3.7894332423
+// alert( random(1, 5) ); // 4.3435234525
+
+// function random(min, max) {
+//     return Math.random() * (max - min) + min;
+// }
+
+// console.log(random(1, 5));
+// console.log(random(1, 5));
+// console.log(random(1, 5));
+
+// 3)
+// Напишите функцию randomInteger(min, max), которая генерирует случайное
+// целое(integer) число от min до max(включительно).
+// Любое число из интервала min..max должно появляться с одинаковой
+// вероятностью.
+
+// Пример работы функции:
+// alert( randomInteger(1, 5) ); // 1
+// alert( randomInteger(1, 5) ); // 3
+// alert( randomInteger(1, 5) ); // 5
+
+// 3.1)
+// function randomInteger(min, max) {
+//     return Math.floor(Math.random() * (max - min + 1) + min);
+// }
+
+// console.log(randomInteger(1, 5));
+// console.log(randomInteger(1, 5));
+// console.log(randomInteger(1, 5));
+
+// 3.2)
+// function randomInteger(min, max) {
+//     // получить случайное число от (min-0.5) до (max+0.5)
+//      let rand = min - 0.5 + Math.random() * (max - min + 1);
+//     return Math.round(rand);
+// }
+
+// console.log(randomInteger(1, 5));
+// console.log(randomInteger(1, 5));
+// console.log(randomInteger(1, 5));
