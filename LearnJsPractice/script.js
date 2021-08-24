@@ -1148,3 +1148,28 @@
 // // console.log(filtered); // 3,1 (совпадающие значения)
 // // console.log(arr); // 5,3,8,1 (без изменений)
 
+// function makeCount() {
+//     let count = 0;
+//     return function () {
+//         return count++;
+//     };
+// }
+
+// let counter = makeCount();
+
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
+
+
+// function makeCounter() {
+//     let count = 0;
+//     return () => {
+//         return count++;
+//     };
+// }
+
+// let counterTwo = makeCounter();
+// console.log(counterTwo());
+// console.log(counterTwo());
+// console.log(counterTwo());
