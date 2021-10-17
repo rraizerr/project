@@ -48,17 +48,63 @@
 
 // let ivan = new User("Ivan", 23);
 
+// ivan.hello();
 
-// 4) 
+// 4) Ручная привязка this: call, app;y, bind
 
-function sayName() {
+// function sayName() {
+//     console.log(this);          // Выведет объект, который мы передали
+//     console.log(this.name);     // Выведет свойство переданного объекта
+// }
+
+// const user = {
+//     name: "John"
+// };
+
+// sayName.call(user);
+// sayName.apply(user);
+
+
+// Разница между call и apply  в синтаксисе
+// метод bind - создает новую функцию связанную с определенным контекстом
+
+// function sayName(surname) {
+//     console.log(this);          // Выведет объект, который мы передали
+//     console.log(this.name + " " + surname);     // Выведет свойство переданного объекта
+// }
+
+// const user = {
+//     name: "John"
+// };
+
+// sayName.call(user, "Smith");
+// sayName.apply(user, ["Smith"]);
+
+// function count(num) {
+//     return this * num;
+// }
+
+// const double = count.bind(2);
+
+// console.log(double(3));
+// console.log(double(13));
+
+const btn = document.querySelector("button");
+
+btn.addEventListener("click", function() {
     console.log(this);
-    console.log(this.name);
-}
+    this.style.backgroundColor = "red";
+});
 
-const user = {
-    name: "John"
+const obj = {
+    num: 5,
+    sayNumber: function () {
+        const say = () => {
+            console.log(this); // ссылается на родителя, которым является метод объекта, выведет объект
+            console.log(this.num); // 5
+        };
+        say();
+    }
 };
 
-sayName.call(user);
-sayName.apply(user);
+obj.sayNumber();
