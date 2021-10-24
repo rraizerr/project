@@ -233,6 +233,7 @@ window.addEventListener("DOMContentLoaded", () => {
             display: block;
             margin: 0 auto;
             `;
+            
             // form.append(statusMessage); // Добавляет спиннер в форму
             form.insertAdjacentElement("afterend", statusMessage); // Добавляет спиннер после формы
 
