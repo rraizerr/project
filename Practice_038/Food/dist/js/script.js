@@ -182,32 +182,27 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
     
-    new MenuCard(
-        "img/tabs/vegy.jpg",
-        "vegy",
-        'Меню "Фитнес"',
-        'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
-        9,
-        ".menu .container"
-    ).render();
+    const getResorce = async (url) => {
+        const res = await fetch(url);
+        
+        if (!res.ok) { // если в запросе пошло что-то не так, в консоль выкидываем ошибку
+            throw new Error(`Could not fetch ${url}, status: ${res.status}`);
+        }
 
-    new MenuCard(
-        "img/tabs/elite.jpg",
-        "elite",
-        'Меню "“Премиум”"',
-        'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - есторанное меню без похода в ресторан!',
-        14,
-        ".menu .container"
-    ).render();
+        return await res.json();
+    };
 
-    new MenuCard(
-        "img/tabs/post.jpg",
-        "post",
-        'Меню "Постное"',
-        'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
-        21,
-        ".menu .container"
-    ).render();
+    //при помощи сервера запроса мы получаем массив, который содержит menu
+    //это массив с объектами. Перебераем этот массив методом forEach
+    //создаем новый класс MenuCard для каждого объекта, деструктуризируем
+    //его по отдельным частям и передаем эти части во внутрь нашего
+    //конструктора MenuCard, который создает новую карточку на страничке
+    getResorce("http://localhost:3000/menu")
+        .then(data => {
+            data.forEach(({img, altimg, title, descr, price}) => {
+                new MenuCard(img, altimg, title, descr, price, ".menu .container").render();
+            });
+        });
 
     // Forms
 
@@ -220,10 +215,22 @@ window.addEventListener("DOMContentLoaded", () => {
     };
 
     forms.forEach(item => {
-        postData(item);
+        bindPostData(item);
     });
 
-    function postData(form) {
+    const postData = async (url, data) => { // async говорит что внитри функции есть асинхронный код
+        const res = await fetch(url, { // async будет ждать выполнение этой операции
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: data
+        });
+
+        return await res.json();
+    };
+
+    function bindPostData(form) {
         form.addEventListener("submit", (e) => {
             e.preventDefault();
 
@@ -239,19 +246,12 @@ window.addEventListener("DOMContentLoaded", () => {
             // Отправлляем форму в формате JSON
             const formData = new FormData(form);
 
-            const object = {};
-            formData.forEach(function (value, key) {
-                object[key] = value;
-            });
+            const json = JSON.stringify(Object.fromEntries(formData.entries()));
+            // превращаем formData в массив массивов, затем с помощью
+            // fromEntries в классический объект JS, и затем с помощью
+            // stringify в json формат
 
-            fetch("server.php", {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify(object)
-            })
-            .then(data => data.text())
+            postData("http://localhost:3000/requests", json) // отправляем форму на сервер
             .then(data => {
                 console.log(data);    // если все ок, вывводим в консоль результат  
                 showThanksModal(message.success); // запускаем функцию с сообщением что все успешно и
