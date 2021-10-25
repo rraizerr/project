@@ -237,30 +237,30 @@ window.addEventListener("DOMContentLoaded", () => {
             // form.append(statusMessage); // Добавляет спиннер в форму
             form.insertAdjacentElement("afterend", statusMessage); // Добавляет спиннер после формы
 
-            const request = new XMLHttpRequest();
-            request.open("POST", "server.php");
+            // const request = new XMLHttpRequest();
+            // request.open("POST", "server.php");
 
-            // request.setRequestHeader("Content-type", "multipart/form-data"); 
-            //Заголовок устанавливать не нужно, он поставится автоматически
-            // const formData = new FormData(form);
+            // // request.setRequestHeader("Content-type", "multipart/form-data"); 
+            // //Заголовок устанавливать не нужно, он поставится автоматически
+            // // const formData = new FormData(form);
 
-            // request.send(formData);
+            // // request.send(formData);
 
-            // request.addEventListener("load", () => {
-            //     if (request.status === 200) {
-            //         console.log(request.response);
-            //         statusMessage.textContent = message.success;
-            //         form.reset(); // Очищаем форму
-            //         setTimeout(() => {
-            //             statusMessage.remove()
-            //         }, 2000);
-            //     } else {
-            //         statusMessage.textContent = message.failure;
-            //     }
-            // });
+            // // request.addEventListener("load", () => {
+            // //     if (request.status === 200) {
+            // //         console.log(request.response);
+            // //         statusMessage.textContent = message.success;
+            // //         form.reset(); // Очищаем форму
+            // //         setTimeout(() => {
+            // //             statusMessage.remove()
+            // //         }, 2000);
+            // //     } else {
+            // //         statusMessage.textContent = message.failure;
+            // //     }
+            // // });
 
             // Отправлляем форму в формате JSON
-            request.setRequestHeader("Content-type", "application/json"); 
+            // request.setRequestHeader("Content-type", "application/json"); 
             const formData = new FormData(form);
 
             const object = {};
@@ -268,21 +268,38 @@ window.addEventListener("DOMContentLoaded", () => {
                 object[key] = value;
             });
 
-            const json = JSON.stringify(object);
-
-            request.send(json); // отправка запроса с данными
-
-            request.addEventListener("load", () => {
-                if (request.status === 200) {         // получаем ответ от сервера
-                    console.log(request.response);    // если все ок, вывводим в консоль результат  
-                    showThanksModal(message.success); // запускаем функцию с сообщением что все успешно и
-                    // и закрываем модальное окно вместе с текстом и возвращением изначального контента
-                    form.reset(); // Очищаем форму
-                    statusMessage.remove(); // удаляем спиннер загрузки
-                } else {
-                    showThanksModal(message.failure);
-                }
+            fetch("server.php", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify(object)
+            })
+            .then(data => data.text())
+            .then(data => {
+                console.log(data);    // если все ок, вывводим в консоль результат  
+                showThanksModal(message.success); // запускаем функцию с сообщением что все успешно и
+                // и закрываем модальное окно вместе с текстом и возвращением изначального контента
+                statusMessage.remove(); // удаляем спиннер загрузки
+            }).catch(() => {
+                showThanksModal(message.failure);
+            }).finally(() => {
+                form.reset(); // Очищаем форму
             });
+
+            // request.send(json); // отправка запроса с данными
+
+            // request.addEventListener("load", () => {
+            //     if (request.status === 200) {         // получаем ответ от сервера
+            //         console.log(request.response);    // если все ок, вывводим в консоль результат  
+            //         showThanksModal(message.success); // запускаем функцию с сообщением что все успешно и
+            //         // и закрываем модальное окно вместе с текстом и возвращением изначального контента
+            //         form.reset(); // Очищаем форму
+            //         statusMessage.remove(); // удаляем спиннер загрузки
+            //     } else {
+            //         showThanksModal(message.failure);
+            //     }
+            // });
 
         });
     }
