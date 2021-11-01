@@ -1,1 +1,2 @@
 cd /d/web-lessons/udemyprojects/practice_038
+cd /d/temp/mamp/htdocs/dist

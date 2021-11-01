@@ -192,14 +192,22 @@ window.addEventListener("DOMContentLoaded", () => {
         return await res.json();
     };
 
-    //при помощи сервера запроса мы получаем массив, который содержит menu
-    //это массив с объектами. Перебераем этот массив методом forEach
-    //создаем новый класс MenuCard для каждого объекта, деструктуризируем
-    //его по отдельным частям и передаем эти части во внутрь нашего
-    //конструктора MenuCard, который создает новую карточку на страничке
-    getResorce("http://localhost:3000/menu")
+    // //при помощи сервера запроса мы получаем массив, который содержит menu
+    // //это массив с объектами. Перебераем этот массив методом forEach
+    // //создаем новый класс MenuCard для каждого объекта, деструктуризируем
+    // //его по отдельным частям и передаем эти части во внутрь нашего
+    // //конструктора MenuCard, который создает новую карточку на страничке
+    // getResorce("http://localhost:3000/menu")
+    //     .then(data => {
+    //         data.forEach(({img, altimg, title, descr, price}) => {
+    //             new MenuCard(img, altimg, title, descr, price, ".menu .container").render();
+    //         });
+    //     });
+
+    // сипользуем библиотеку axios
+    axios.get("http://localhost:3000/menu")
         .then(data => {
-            data.forEach(({img, altimg, title, descr, price}) => {
+            data.data.forEach(({img, altimg, title, descr, price}) => {
                 new MenuCard(img, altimg, title, descr, price, ".menu .container").render();
             });
         });
@@ -288,4 +296,55 @@ window.addEventListener("DOMContentLoaded", () => {
             closeModal();
         }, 4000);
     }
+
+    // Slider
+
+    const slides = document.querySelectorAll(".offer__slide"),
+        prev = document.querySelector(".offer__slider-prev"),
+        next = document.querySelector(".offer__slider-next"),
+        total = document.querySelector("#total"),
+        current = document.querySelector("#current");
+    let slideIndex = 1;
+       
+    showSlides(slideIndex);
+
+    if (slides.length < 10) {
+        total.textContent = `0${slides.length}`;
+    } else {
+        total.textContent = slides.length;
+    }
+
+    function showSlides(n) {
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+
+        if (slides.length < 10) {
+            current.textContent = `0${slideIndex}`;
+        } else {
+            current.textContent = slideIndex;
+        }
+
+        slides.forEach(item => item.classList.add("hide"));
+
+        slides[slideIndex - 1].classList.add("show");
+        slides[slideIndex - 1].classList.remove("hide");
+    }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    prev.addEventListener("click", () => {
+        plusSlides(-1);
+        
+    });
+
+    next.addEventListener("click", () => {
+        plusSlides(1);
+    });
 });
