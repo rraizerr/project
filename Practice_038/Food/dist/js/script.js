@@ -41,7 +41,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     // Timer
-    const deadLine = "2021-10-30";
+    const deadLine = "2021-11-26";
 
     function getTimeRemaining(endtime) {
         const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -87,6 +87,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
             if (t.total <= 0) {
                 clearInterval(timeInterval);
+                // Обнуление таймера после окончания отсчета
+                days.innerHTML = 0;
+                hours.innerHTML = 0;
+                minutes.innerHTML = 0;
+                seconds.innerHTML = 0;
             }
         }
     }
