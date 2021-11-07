@@ -429,6 +429,20 @@ window.addEventListener("DOMContentLoaded", () => {
         dots.push(dot);
     }
 
+    function addZero(index) {
+        if (slides.length < 10) {
+            current.textContent = `0${index}`;
+        } else {
+            current.textContent = index;
+        }
+    }
+
+    function activeDot() {
+        // перебираем все точки и устанавливаем значение opacity 50%
+        dots.forEach(dot => dot.style.opacity = ".5");
+        dots[slideIndex - 1].style.opacity = 1;
+    }
+
     next.addEventListener("click", () => {
         if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
                       // Удаляем "px" от размера слайда (500px/ станет 500) 
@@ -445,15 +459,8 @@ window.addEventListener("DOMContentLoaded", () => {
             slideIndex++;
         }
 
-        if (slides.length < 10) {
-            current.textContent = `0${slideIndex}`;
-        } else {
-            current.textContent = slideIndex;
-        }
-
-        // перебираем все точки и устанавливаем значение opacity 50%
-        dots.forEach(dot => dot.style.opacity = ".5");
-        dots[slideIndex - 1].style.opacity = 1;
+        addZero(slideIndex);
+        activeDot();
     });
 
     prev.addEventListener("click", () => {
@@ -472,13 +479,8 @@ window.addEventListener("DOMContentLoaded", () => {
             slideIndex--;
         }
 
-        if (slides.length < 10) {
-            current.textContent = `0${slideIndex}`;
-        } else {
-            current.textContent = slideIndex;
-        }
-        dots.forEach(dot => dot.style.opacity = ".5");
-        dots[slideIndex - 1].style.opacity = 1;
+        addZero(slideIndex);
+        activeDot();
     });
 
     dots.forEach(dot => {
@@ -491,14 +493,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
             slidesField.style.transform = `translateX(-${offset}px)`;
 
-            if (slides.length < 10) {
-                current.textContent = `0${slideIndex}`;
-            } else {
-                current.textContent = slideIndex;
-            }
-
-            dots.forEach(dot => dot.style.opacity = ".5");
-            dots[slideIndex - 1].style.opacity = 1;
+            addZero(slideIndex);
+            activeDot();
         });
     });
 
