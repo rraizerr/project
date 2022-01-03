@@ -4,6 +4,10 @@ let two = 2;
 
 export { two };
 
-export function sayHi() {
+// export function sayHi() {
+//     console.log("Hello");
+// }
+
+export default function sayHi() {
     console.log("Hello");
 }
