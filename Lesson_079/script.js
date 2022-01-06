@@ -50,3 +50,28 @@ btnDown.addEventListener('click', () => requestAnimationFrame(myAnimationDown));
 
 btnLeft.addEventListener('click', () => requestAnimationFrame(myAnimationLeft));
 btnTop.addEventListener('click', () => requestAnimationFrame(myAnimationTop));
+
+window.addEventListener("keydown", function (event) {
+    if (event.defaultPrevented) {
+        return; // Do nothing if event already handled
+    }
+    
+    switch (event.code) {
+        case "ArrowDown":
+            // Handle "back"
+            myAnimationDown();
+            break;
+        case "ArrowUp":
+            // Handle "forward"
+            myAnimationTop();
+            break;
+        case "ArrowLeft":
+            // Handle "turn left"
+            myAnimationLeft();
+            break;
+        case "ArrowRight":
+            // Handle "turn right"
+            myAnimationRight();
+            break;
+    }
+});
