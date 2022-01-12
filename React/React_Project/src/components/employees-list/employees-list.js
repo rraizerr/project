@@ -1,12 +1,13 @@
-import EmployeersListItem from "../employeers-list-item/employeers-list-item";
+import EmployeesListItem from "../employees-list-item/employees-list-item";
 
-import "./employeers-list.css"
+import "./employees-list.css"
 
-const EmployeersList = ({data}) => {
+const EmployeesList = ({data}) => {
     
     const elements = data.map(item => {
+        const { id, ...itemProps } = item;
         return (
-            <EmployeersListItem {...item} />
+            <EmployeesListItem key={id} {...itemProps} />
             // name={item.name} salary={item.salary} идентична этой записи {...item}
         )
     })
@@ -18,4 +19,4 @@ const EmployeersList = ({data}) => {
     );
 }
 
-export default EmployeersList;
+export default EmployeesList;
