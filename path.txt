@@ -1,2 +1,2 @@
-cd /d/web-lessons/udemyprojects/practice_038
+cd /D/Web-Lessons/UdemyProjects/React/React_0
 cd /d/temp/mamp/htdocs/food
