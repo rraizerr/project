@@ -1,0 +1,37 @@
+.post {
+    margin: 0  auto;
+    margin-top: 30px;
+    width: 640px;
+    height: 811px;
+    left: 400px;
+    top: 324px;
+
+    background: #FFFFFF;
+    border: 1px solid #C4C4C4;
+}
+
+.post p {
+    margin: 0;
+}
+
+.post-icon {
+    width: 36px;
+    height: 36px;
+}
+
+.img-post {
+    width: 638px;
+    height: 638px;
+}
+
+.post-name, .like-counter, .post-descr-name {
+    font-weight: bold;
+}
+
+.like-counter {
+    margin-left: 16px!important;
+}
+
+.post-descr {
+    margin-left: 16px!important;
+}
