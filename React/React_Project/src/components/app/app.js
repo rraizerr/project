@@ -16,7 +16,9 @@ class App extends Component {
                 { name: "John C.", salary: 800, increase: false, rise:true, id: 1},
                 { name: "Alex M.", salary: 3000, increase: true, rise:false, id: 2},
                 { name: "Carl W.", salary: 5000, increase: false, rise:false, id: 3}
-            ]
+            ],
+            term: "",
+            filter: "all"
         }
         this.maxId = 4;
     }
@@ -103,9 +105,47 @@ class App extends Component {
         }));
     }
 
+    // метод принимает два аргумента, строчку по которой будем искать
+    // и массив в котором будет осуществляться поиск
+    searchEmp = (items, term) => {
+        if (term.length === 0) {    // Если строчка которая отображает поиск ничегоне будет содержать, 
+            return items;           // возвращаем массив, который к нам придет
+        }
+        // если условие не сработало, фильтруем массив
+        return items.filter(item => {           // item - каждый отдельный элемент массива
+            // возвращаем только те элементы, которые проходят проверку
+            return item.name.indexOf(term) > -1 // indexOf() используем для поиска строки
+        })
+    }
+
+    onUpdateSearch = (term) => {
+        this.setState({ term }); // сокращенная запись от term: term
+    }
+
+    filterPost = (items, filter) => {
+        switch (filter) {
+            case "rise":
+                // возвращаем только те элементы в которых rise  == true
+                return items.filter(item => item.rise);
+            case "moreThen1000":
+                return items.filter(item => item.salary > 1000);
+            default:
+                return items;
+        }
+    }
+
+    onFilterSelect = (filter) => {
+        this.setState({ filter });
+    }
+
     render() {
+        const { data, term, filter } = this.state;
         const employees = this.state.data.length;
         const increased = this.state.data.filter(item => item.increase).length;
+        // this.filterPost как массив принимает выражение (this.searchEmp(data, term), filter);
+        // данные будут проходить двойную фильтрацию, сначала проходит фильтрация по поиску, а после - по фильтрам
+        const visibleData = this.filterPost(this.searchEmp(data, term), filter);
+        
         return (
             <div className="app">
                 <AppInfo
@@ -113,12 +153,13 @@ class App extends Component {
                     increased={increased} />
                 
                 <div className="search-panel">
-                    <SearchPanel />
-                    <AppFilter />
+                    <SearchPanel onUpdateSearch={this.onUpdateSearch} />
+                    <AppFilter filter={filter}
+                        onFilterSelect={this.onFilterSelect} />
                 </div>
 
                 <EmployeesList
-                    data={this.state.data}
+                    data={visibleData}
                     onDelete={this.deleteItem}
                     onToggleProp={this.onToggleProp} />
                 <EmployeesAddForm onAdd={this.addItem} />
