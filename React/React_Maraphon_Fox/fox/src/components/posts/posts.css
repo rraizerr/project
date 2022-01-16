@@ -29,6 +29,11 @@
     height: 638px;
 }
 
+.post-like img {
+    width: 32px;
+    height: 30px;
+}
+
 .post-name, .like-counter {
     font-weight: bold;
 }
