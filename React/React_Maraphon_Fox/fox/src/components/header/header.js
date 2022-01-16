@@ -13,9 +13,9 @@ function Header({ data }) {
                 </div>
                 <div className="icons p-2 flex-fill bd-highlight">
                     <div className="img-container d-flex justify-content-between">
-                    <img src={arr[0]} alt="" />
-                    <img src={arr[1]} alt="" />
-                    <img src={arr[2]} alt="" />
+                        <img src={arr[0]} alt="" />
+                        <img src={arr[1]} alt="" />
+                        <img src={arr[2]} alt="" />
                     </div>
                 </div>
             </div>
