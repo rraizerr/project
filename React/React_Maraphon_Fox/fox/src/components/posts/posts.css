@@ -10,6 +10,11 @@
     border: 1px solid #C4C4C4;
 }
 
+.post:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 1px black;
+}
+
 .post p {
     margin: 0;
 }
@@ -24,7 +29,7 @@
     height: 638px;
 }
 
-.post-name, .like-counter, .post-descr-name {
+.post-name, .like-counter {
     font-weight: bold;
 }
 

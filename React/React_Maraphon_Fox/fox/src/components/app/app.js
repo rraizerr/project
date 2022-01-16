@@ -27,9 +27,8 @@ class App extends Component {
                     <Stories />
                 </div>
 
-                <div className="posts">
-                    <Posts />
-                </div>
+                <Posts />
+                
             </div>
         );
     }
