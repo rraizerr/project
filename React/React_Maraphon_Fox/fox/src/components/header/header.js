@@ -3,7 +3,14 @@
 import "./header.css"
 
 function Header({ data }) {
-    const arr = data.map(item => item.img)
+    const btnArr = data.map(item => {
+        const btnItem = item.img
+        return (
+            <>
+                <button type="button"><img src={btnItem} alt="" /></button>
+            </>
+        )
+    })
     
         return (
             
@@ -13,9 +20,7 @@ function Header({ data }) {
                 </div>
                 <div className="icons p-2 flex-fill bd-highlight">
                     <div className="img-container d-flex justify-content-between">
-                        <img src={arr[0]} alt="" />
-                        <img src={arr[1]} alt="" />
-                        <img src={arr[2]} alt="" />
+                        {btnArr}
                     </div>
                 </div>
             </div>
