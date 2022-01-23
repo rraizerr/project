@@ -10,7 +10,7 @@ const BootstrapTest = () => {
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" />
                             <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
+                                We'll never share your email with anyone else.
                             </Form.Text>
                         </Form.Group>
 
@@ -29,14 +29,14 @@ const BootstrapTest = () => {
                 <Col>
                     <Carousel>
                         <Carousel.Item>
-                            <img
-                            className="d-block w-100"
-                            src="https://ichef.bbci.co.uk/news/976/cpsprodpb/6D5A/production/_119449972_10.jpg"
-                            alt="First slide"
-                            />
+                                <img
+                                className="d-block w-100"
+                                src="https://ichef.bbci.co.uk/news/976/cpsprodpb/6D5A/production/_119449972_10.jpg"
+                                alt="First slide"
+                                />
                             <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                <h3>First slide label</h3>
+                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item>
@@ -47,8 +47,8 @@ const BootstrapTest = () => {
                             />
 
                             <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h3>Second slide label</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item>
@@ -59,8 +59,8 @@ const BootstrapTest = () => {
                             />
 
                             <Carousel.Caption>
-                            <h3>Third slide label</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                <h3>Third slide label</h3>
+                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                     </Carousel>
