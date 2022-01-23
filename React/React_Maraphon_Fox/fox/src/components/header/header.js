@@ -1,14 +1,15 @@
-// import { Component } from "react";
+import { Fragment } from "react";
 
 import "./header.css"
 
 function Header({ data }) {
-    const btnArr = data.map(item => {
-        const btnItem = item.img
+    const btnArr = data.map((item, id) => {
+        const btnItem = item.img;
+        const btnId = id;
         return (
-            <>
-                <button type="button"><img src={btnItem} alt="" /></button>
-            </>
+            <Fragment key={btnId}>
+                <button type="button" ><img src={btnItem} alt="" /></button>
+            </Fragment>
         )
     })
     

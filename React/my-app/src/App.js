@@ -105,8 +105,9 @@ class WhoAmI extends Component  {
   render() {
     const { name, surname, link } = this.props;
     const { position, years, text } = this.state;
-    return(
-      <div>
+    return (
+      // <> - Реакт фрагмент, избавляемся от лишнего div
+      <>
         <button onClick={this.nextYear}>{text}</button>  
         <h1>My name is {name},
             surname - {surname},
@@ -118,7 +119,7 @@ class WhoAmI extends Component  {
           {/* Используем стрелочную функцию для передачи аргументов */}
           <input type="text" onChange={(e) => this.commitInputChanges(e, "some color")} />
         </form>
-      </div>
+      </>
     );
   }
 }
