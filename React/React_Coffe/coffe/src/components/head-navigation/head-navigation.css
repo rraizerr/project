@@ -1,0 +1,42 @@
+.main-nav {
+    /* position: relative; */
+    display: flex;
+    width: 355px;
+    padding: 30px;
+    font-weight: 400;
+    margin-left: 80px;
+}
+
+.main-nav ul {
+    flex: 1 100px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+}
+
+.logo {
+    position: absolute;
+    top: -12px;
+    left: 26px;
+    background-image: url(../img/logo.svg);
+    width: 35px;
+    height: 35px;
+}
+
+.navigation {
+    color: #fff;
+    font-size: 12px;
+    line-height: 17px;
+}
+
+.navigation li {
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
