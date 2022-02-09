@@ -15,7 +15,6 @@ files.forEach(file => {
 
 arr = arr.sort();
 
-
 let str = arr.join("") + "vv.cherkov@gmail.com";
 console.log(str);
 
