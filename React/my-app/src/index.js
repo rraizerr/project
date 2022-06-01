@@ -1,9 +1,8 @@
-import React, {StrictMode} from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { Button } from "./App";
-import BootstrapTest from './BootstrapTest';
 import styled from "styled-components";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,10 +14,9 @@ const BigButton = styled(Button)`
 `;
 
 ReactDOM.render(
-  <StrictMode>
-    <App />
-    <BigButton as="a">Отправить отчет</BigButton>
-    <BootstrapTest />
-  </StrictMode>,
-  document.getElementById('root')
+    <StrictMode>
+        <App />
+        <BigButton as="a">Отправить отчет</BigButton>
+    </StrictMode>,
+    document.getElementById('root')
 );

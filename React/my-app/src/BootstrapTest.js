@@ -1,11 +1,12 @@
 import { Container, Row, Col, Carousel, Form, Button } from "react-bootstrap";
 
-const BootstrapTest = () => {
+const BootstrapTest = (props) => {
     return (
         <Container className="mt-5 mb-5">
             <Row>
                 <Col>
-                    <Form>
+                    {props.left}
+                    {/* <Form>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" />
@@ -24,16 +25,17 @@ const BootstrapTest = () => {
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>
-                    </Form>
+                    </Form> */}
                 </Col>
                 <Col>
-                    <Carousel>
+                    {props.right}
+                    {/* <Carousel>
                         <Carousel.Item>
-                                <img
+                            <img
                                 className="d-block w-100"
                                 src="https://ichef.bbci.co.uk/news/976/cpsprodpb/6D5A/production/_119449972_10.jpg"
                                 alt="First slide"
-                                />
+                            />
                             <Carousel.Caption>
                                 <h3>First slide label</h3>
                                 <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -41,9 +43,9 @@ const BootstrapTest = () => {
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
-                            className="d-block w-100"
-                            src="https://d3rf6j5nx5r04a.cloudfront.net/NbpnSS19UD0HnElVoaRmn1dS_LQ=/2000x1000/product/6/1/97a47a9c1f354a448024c521e5f7cab2.jpg"
-                            alt="Second slide"
+                                className="d-block w-100"
+                                src="https://d3rf6j5nx5r04a.cloudfront.net/NbpnSS19UD0HnElVoaRmn1dS_LQ=/2000x1000/product/6/1/97a47a9c1f354a448024c521e5f7cab2.jpg"
+                                alt="Second slide"
                             />
 
                             <Carousel.Caption>
@@ -53,9 +55,9 @@ const BootstrapTest = () => {
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
-                            className="d-block w-100"
-                            src="https://photographypla.net/wp-content/uploads/2013/10/PP1.jpg"
-                            alt="Third slide"
+                                className="d-block w-100"
+                                src="https://photographypla.net/wp-content/uploads/2013/10/PP1.jpg"
+                                alt="Third slide"
                             />
 
                             <Carousel.Caption>
@@ -63,7 +65,7 @@ const BootstrapTest = () => {
                                 <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
-                    </Carousel>
+                    </Carousel> */}
                 </Col>
             </Row>
         </Container>
