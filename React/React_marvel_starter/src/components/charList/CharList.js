@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import PropTypes from "prop-types"
+
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import MarvelService from '../../services/MarvelService';
@@ -109,6 +111,13 @@ class CharList extends Component {
             </div>
         )
     }
+}
+
+// Можно добавить`isRequired` к любому приведённому выше типу,
+// чтобы показывать предупреждение,
+// если проп не передан
+CharList.propTypes = {
+    onCharSelected: PropTypes.func.isRequired
 }
 
 export default CharList;
